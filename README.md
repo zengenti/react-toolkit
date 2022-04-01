@@ -1,4 +1,4 @@
-# react-toolkit
+# React Toolkit
 
 This project contains unembellished ‘vanilla’ components that can be imported for use on site projects, or to act as starting templates.
 
