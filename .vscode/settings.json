@@ -1,0 +1,48 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  // Controls whether the editor should automatically format the line after typing.
+  "editor.formatOnType": true,
+  // Render the actual characters on a line as opposed to color blocks.
+  "editor.minimap.renderCharacters": false,
+  // Controls fading out of unused code.
+  "editor.showUnused": true,
+  // Remove trailing auto inserted whitespace.
+  "editor.trimAutoWhitespace": true,
+  // When enabled, insert a final new line at the end of the file when saving it.
+  "files.insertFinalNewline": true,
+  // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
+  "files.trimFinalNewlines": true,
+  // When enabled, will trim trailing whitespace when saving a file.
+  "files.trimTrailingWhitespace": false,
+  // Enable/disable default HTML formatter.
+  "html.format.enable": true,
+  // End with a newline.
+  "html.format.endWithNewline": false,
+  // Turns auto fix on save on or off.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.cursorBlinking": "smooth",
+  "workbench.editor.highlightModifiedTabs": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorCustomizations": {
+    "tab.activeBorderTop": "#37bfa7",
+    "activityBar.background": "#372f2c",
+    "activityBar.activeBorder": "#37bfa7",
+    "activityBar.foreground": "#37bfa7",
+    "activityBar.inactiveForeground": "#8f7068",
+    "activityBarBadge.background": "#37bfa7",
+    "activityBarBadge.foreground": "#ffffff",
+    "titleBar.activeBackground": "#221e1c",
+    "titleBar.inactiveBackground": "#221e1c99",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#221e1c",
+    "statusBarItem.hoverBackground": "#372f2c",
+    "statusBar.foreground": "#e7e7e7"
+  }
+}

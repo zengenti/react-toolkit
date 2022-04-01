@@ -2,8 +2,9 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Breadcrumbs } from "../../index";
 import "./styles.css";
-import { nodesTrail, svg } from "./mock";
+import { nodesTrail } from "./mock";
 import reactRouterDecorator from "../../../.storybook/decorators/react-router";
+import chevronRight from "../assets/chevron-right";
 
 export default {
   title: "Components/Breadcrumbs",
@@ -28,7 +29,7 @@ export const SVG = Template.bind({});
 SVG.decorators = [reactRouterDecorator];
 SVG.args = {
   nodes: nodesTrail,
-  separator: svg,
+  separator: chevronRight,
 };
 
 export const Emoji = Template.bind({});
