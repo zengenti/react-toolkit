@@ -15,6 +15,9 @@ export type BreadcrumbsProps = {
   separator?: string | React.SVGProps<SVGSVGElement> | null;
 };
 
+/**
+   This is still WIP, please don't actually use this yet
+  */
 export function Breadcrumbs({ nodes, separator = ">" }: BreadcrumbsProps) {
   if (!nodes || !nodes.length) return null;
 

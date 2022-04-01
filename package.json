@@ -4,9 +4,16 @@
   "description": "Common components and utilites used on React projects",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
+  "files": [
+    "lib"
+  ],
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "npm run clean:lib && rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean:lib": "rimraf ./lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -23,17 +30,19 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@storybook/addon-a11y": "~6.3.12",
-    "@storybook/addon-actions": "~6.3.12",
-    "@storybook/addon-essentials": "~6.3.12",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "~6.3.12",
+    "@storybook/addon-actions": "^6.4.20",
+    "@storybook/addon-essentials": "^6.4.20",
+    "@storybook/addon-interactions": "^6.4.20",
+    "@storybook/addon-links": "^6.4.20",
+    "@storybook/react": "^6.4.20",
+    "@storybook/testing-library": "^0.0.9",
     "@types/react": "^17.0.34",
     "@types/react-helmet": "^6.1.4",
-    "@types/react-router-hash-link": "^2.4.4",
+    "@types/react-router-dom": "^5.3.3",
     "babel-loader": "^8.2.3",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-storybook": "^0.5.7",
     "postcss": "^8.3.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
