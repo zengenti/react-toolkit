@@ -14,6 +14,9 @@ export default {
   },
 } as ComponentMeta<typeof Breadcrumbs>;
 
+/**
+   This is still WIP, please don't actually use this yet
+  */
 const Template: ComponentStory<typeof Breadcrumbs> = (args) => (
   <Breadcrumbs {...args} />
 );
