@@ -1,0 +1,10 @@
+.breadcrumbs__list {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+}
+.breadcrumbs__list-separator {
+  padding: 0 1rem;
+}
+.current a {
+  text-decoration: none;
+}
