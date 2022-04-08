@@ -22,7 +22,7 @@ describe("Parent links", () => {
     renderBreadcrumbs();
 
     const links = screen.getAllByRole("link");
-    expect(links).toHaveLength(breadcrumbAssumptions.length + 1);
+    expect(links).toHaveLength(breadcrumbAssumptions.length);
     links.map((link, index) => {
       expect(link).toHaveAccessibleName(breadcrumbAssumptions[index].title);
       expect(link).toHaveAttribute("href", breadcrumbAssumptions[index].href);
