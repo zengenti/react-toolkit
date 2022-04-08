@@ -1,5 +1,5 @@
 {
-  "name": "react-toolkit",
+  "name": "@zengenti/react-toolkit",
   "version": "1.0.0",
   "description": "Common components and utilites used on React projects",
   "main": "lib/index.cjs.js",
