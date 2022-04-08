@@ -7,20 +7,30 @@ describe("Truncate strings", () => {
   const customEndsWith = "...";
 
   it("should return the same string if it is shorter than the length", () => {
-    expect(truncateString(shortString, 8)).toBe(shortString);
+    expect(truncateString({ string: shortString, length: 8 })).toBe(
+      shortString
+    );
   });
 
   it("should return the same string if it is equal to the length", () => {
-    expect(truncateString(shortString, shortString.length)).toBe(shortString);
+    expect(
+      truncateString({ string: shortString, length: shortString.length })
+    ).toBe(shortString);
   });
 
   it("should return the truncated string if it is longer than the length", () => {
-    expect(truncateString(longString, 5)).toBe(longString.slice(0, 5));
+    expect(truncateString({ string: longString, length: 5 })).toBe(
+      longString.slice(0, 5)
+    );
   });
 
   it("should return the elipsis if it is longer than the length", () => {
-    expect(truncateString(longString, 5, customEndsWith)).toBe(
-      longString.slice(0, 5) + "..."
-    );
+    expect(
+      truncateString({
+        string: longString,
+        length: 5,
+        endsWith: customEndsWith,
+      })
+    ).toBe(longString.slice(0, 5) + "...");
   });
 });

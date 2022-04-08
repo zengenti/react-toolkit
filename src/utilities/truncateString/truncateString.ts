@@ -1,9 +1,12 @@
-/** This function shortens a string, adding an elipsis to the end if longer than provided length. */
-function truncateString(
-  string: string,
-  length: number,
-  endsWith: string = ""
-): string {
+/** Shorten a string to a specified length, with the option to add additional string to the end. For example ellipsis '...' */
+
+export type Props = {
+  string: string;
+  length: number;
+  endsWith?: string;
+};
+
+function truncateString({ string, length, endsWith = "" }: Props): string {
   if (typeof string != "string") {
     throw new TypeError("First argument must be a string");
   }
@@ -25,5 +28,3 @@ function truncateString(
 }
 
 export default truncateString;
-
-// write a function to truncate a string to a certain length, adding an elipsis to the end if longer than provided length.
