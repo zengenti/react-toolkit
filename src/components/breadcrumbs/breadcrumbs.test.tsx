@@ -1,7 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { Breadcrumbs } from "./breadcrumbs";
+import { Breadcrumbs, BreadcrumbsProps } from "./breadcrumbs";
 import { nodesTrail } from "./breadcrumbs.mock";
+
+const defaultProps: BreadcrumbsProps = {
+  nodes: nodesTrail,
+};
 
 describe("Parent links", () => {
   const breadcrumbAssumptions = [
@@ -14,7 +18,7 @@ describe("Parent links", () => {
     },
   ];
 
-  it("it should link to parent pages", () => {
+  it("should link to parent pages", () => {
     renderBreadcrumbs();
 
     const links = screen.getAllByRole("link");
@@ -26,10 +30,10 @@ describe("Parent links", () => {
   });
 });
 
-function renderBreadcrumbs() {
+function renderBreadcrumbs(props: BreadcrumbsProps = defaultProps) {
   render(
     <MemoryRouter>
-      <Breadcrumbs nodes={nodesTrail} />
+      <Breadcrumbs {...props} />
     </MemoryRouter>
   );
 }
