@@ -1,4 +1,4 @@
-import truncateString from "./truncateString";
+import { truncateString } from "./truncateString";
 
 describe("Truncate strings", () => {
   const shortString = "Hello";
