@@ -8,6 +8,10 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "npm run clean:lib && rollup -c",
