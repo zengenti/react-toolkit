@@ -1,6 +1,6 @@
 {
   "name": "@zengenti/react-toolkit",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-beta.0",
   "description": "Common components and utilites used on React projects",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
