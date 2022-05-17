@@ -1,27 +1,60 @@
-name: Publish to NPM CI
+name: Publish to NPM (Manual Trigger)
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g. patch, minor, or a specific version like "v0.0.0-alpha.0")'
+        required: true
+        default: 'patch'
+      tag:
+        description: 'The NPM version tag to use, "latest" will become the default package version, or "prerelease"'
+        required: true
+        default: 'latest'
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-      # Setup .npmrc file to publish to npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-      - run: npm ci
-      - run: npm test
-      - run: npm publish --access public
+      - name: Setup GIT
+        run: |
+          git config user.email "github@zengenti.com"
+          git config user.name "$GITHUB_ACTOR"
+      - name: Increment version (if prerelease)
+        if: contains(github.event.inputs.version, 'prerelease')
+        run: npm version prerelease --preid=beta
+      - name: Increment version (if other release)
+        if: contains(github.event.inputs.version, 'prerelease') == false
+        run: npm version ${{ github.event.inputs.version }}
+      - name: Push version increment to GIT
+        run: git push --follow-tags
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # The secret is passed automatically. Nothing to configure.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish release package "${{ github.event.inputs.version }}" with tag "${{ github.event.inputs.tag }}"
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --tag ${{ github.event.inputs.tag }} --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
