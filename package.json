@@ -1,6 +1,6 @@
 {
   "name": "@zengenti/react-toolkit",
-  "version": "1.0.1-beta.2",
+  "version": "1.0.1-beta.3",
   "description": "Common components and utilites used on React projects",
   "private": false,
   "main": "lib/index.cjs.js",
