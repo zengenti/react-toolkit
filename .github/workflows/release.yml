@@ -55,6 +55,6 @@ jobs:
       - name: Publish release package "${{ github.event.inputs.version }}" with tag "${{ github.event.inputs.tag }}"
         run: |
           npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-          npm publish --tag ${{ github.event.inputs.tag }} --ignore-scripts
+          npm publish --tag ${{ github.event.inputs.tag }} --ignore-scripts --access=public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
