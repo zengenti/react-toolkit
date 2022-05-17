@@ -1,0 +1,55 @@
+name: CI Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install project dependencies
+        run: npm ci
+      - name: Setup GIT
+        run: |
+          git config user.email "github@zengenti.com"
+          git config user.name "$GITHUB_ACTOR"
+      - name: Build package and increment version
+        run: |
+          npm run build
+          npm version prerelease --preid=beta --no-git-tag-version
+      - name: Push version increment to GIT
+        run: |
+          git add -A
+          git commit -m "ci: bumps version [skip ci]"
+          git push
+        env:
+          # The secret is passed automatically. Nothing to configure.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish prerelease package
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --tag prerelease --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
