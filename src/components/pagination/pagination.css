@@ -1,0 +1,82 @@
+/* --------------- *
+* Pagination       *
+* --------------- */
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+/* --------------- *
+* Pagination Item  *
+* --------------- */
+/*
+*  Mobile Styles
+*/
+/* 
+* Allow a Cursor on the Pagination Item
+ */
+.pagination-item__link {
+  cursor: pointer;
+}
+/* End */
+/* 
+* Hiding 'Page x of y'
+*/
+.pagination-item--active {
+  color: red;
+}
+.pagination-item--not-active {
+  display: none;
+}
+/* End */
+/* 
+* Hiding Page Index
+*/
+.pagination-item__page-index {
+  display: none;
+}
+/* End */
+/* 
+* Hiding <Dots/> e.g ...
+*/
+.dots {
+  display: none;
+}
+/* End */
+/*
+*  Screen >= 400px
+*/
+@media only screen and (min-width: 400px) {
+  /* 
+  * Hide 'Page x of y on Screens >= 400px 
+  */
+  .sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  /* End */
+  /* 
+  * Show the Page Index on Screens >= 400px
+  * Only Showing NONE Hidden Items.
+  */
+  .pagination-item--not-active,
+  .pagination-item__page-index {
+    display: block;
+  }
+  .pagination-item---hidden {
+    display: none;
+  }
+  /* End */
+  /* 
+  * Show Dots on Screens >= 400px 
+  */
+  .dots {
+    display: block;
+  }
+  /* End */
+}
