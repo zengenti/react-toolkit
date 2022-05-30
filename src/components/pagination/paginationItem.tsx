@@ -20,6 +20,16 @@ export const PaginationItem = ({
   isHidden,
 }: PaginationItemProps) => {
   const pageIndex = index + 1;
+
+  const scrollTop = () => {
+    if (typeof window != "undefined") {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <li
       className={[
@@ -29,11 +39,16 @@ export const PaginationItem = ({
       ].join(" ")}
     >
       <a
-        uri="#"
+        href="#"
+        aria-current={isActive ? "page" : "step"}
+        aria-label={`Page ${pageIndex} of ${pageCount}`}
         className={`pagination-item__link`}
-        onClick={() => updatePageIndex(index)}
+        onClick={() => {
+          updatePageIndex(index);
+          scrollTop();
+        }}
       >
-        <span className="sr-only">
+        <span className="mobile-only">
           Page {pageIndex} of {pageCount}
         </span>
         <span className="pagination-item__page-index">{pageIndex}</span>

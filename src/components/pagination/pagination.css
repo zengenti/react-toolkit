@@ -1,30 +1,17 @@
-/* --------------- *
-* Pagination       *
-* --------------- */
-ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
-/* --------------- *
-* Pagination Item  *
-* --------------- */
-/*
-*  Mobile Styles
-*/
 /* 
-* Allow a Cursor on the Pagination Item
+* Pagination Item Default Styling
  */
 .pagination-item__link {
   cursor: pointer;
 }
+.pagination-item--active > a,
+.pagination-item--active > a:hover {
+  cursor: auto;
+}
 /* End */
 /* 
-* Hiding 'Page x of y'
+* Hiding 'Page x of y' on Mobile
 */
-.pagination-item--active {
-  color: red;
-}
 .pagination-item--not-active {
   display: none;
 }
@@ -50,14 +37,8 @@ ul {
   /* 
   * Hide 'Page x of y on Screens >= 400px 
   */
-  .sr-only {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  .mobile-only {
+    display: none;
   }
   /* End */
   /* 
@@ -66,7 +47,7 @@ ul {
   */
   .pagination-item--not-active,
   .pagination-item__page-index {
-    display: block;
+    display: list-item;
   }
   .pagination-item---hidden {
     display: none;
@@ -76,7 +57,7 @@ ul {
   * Show Dots on Screens >= 400px 
   */
   .dots {
-    display: block;
+    display: list-item;
   }
   /* End */
 }
