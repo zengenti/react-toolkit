@@ -1,3 +1,14 @@
+/* Screen Reader *Only* */
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* End */
 /* 
 * Pagination Item Default Styling
  */
@@ -30,14 +41,22 @@
   display: none;
 }
 /* End */
+/* Hide Paging Link */
+.pagination-item__link {
+  display: none;
+}
+/* End */
 /*
 *  Screen >= 400px
 */
 @media only screen and (min-width: 400px) {
   /* 
-  * Hide 'Page x of y on Screens >= 400px 
+  * Hide 'Page x of y on Screens >= 400px and Show Paging Link.
   */
-  .mobile-only {
+  .pagination-item__link {
+    display: block;
+  }
+  .pagination-item__text {
     display: none;
   }
   /* End */

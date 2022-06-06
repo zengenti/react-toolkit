@@ -38,6 +38,9 @@ export const PaginationItem = ({
         isHidden ? "pagination-item---hidden" : "",
       ].join(" ")}
     >
+      <span className="pagination-item__text">
+        Page {pageIndex} of {pageCount}
+      </span>
       <a
         href="#"
         aria-current={isActive ? "page" : "step"}
@@ -48,7 +51,7 @@ export const PaginationItem = ({
           scrollTop();
         }}
       >
-        <span className="mobile-only">
+        <span className="sr-only">
           Page {pageIndex} of {pageCount}
         </span>
         <span className="pagination-item__page-index">{pageIndex}</span>
