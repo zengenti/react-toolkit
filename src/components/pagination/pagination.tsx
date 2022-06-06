@@ -103,7 +103,7 @@ export const Pagination = ({
 
   const Pages = getPaging(width);
   return (
-    <div className={className} aira-label="Pagination">
+    <div className={className} aria-label="Pagination">
       <ul className="pagination">
         {hasPrevious && (
           <li className="pagination__item--previous">
