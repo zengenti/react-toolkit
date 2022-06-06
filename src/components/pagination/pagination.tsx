@@ -57,7 +57,7 @@ export const Pagination = ({
         let isHidden = false;
         if (i >= minPages && i < pageCount - 1) isHidden = true;
 
-        if (i === minPages) Pages.push(<Dots />);
+        if (i === minPages) Pages.push(<Dots key={`${i}-dots`} />);
         Pages.push(
           <PaginationItem {...PaginationItemProps} isHidden={isHidden} />
         );
@@ -75,11 +75,13 @@ export const Pagination = ({
             i !== 0
           )
             isHidden = true;
-          if (i === pageIndex - 3 || i === pageIndex + 3) Pages.push(<Dots />);
+          if (i === pageIndex - 3 || i === pageIndex + 3)
+            Pages.push(<Dots key={`${i}-dots`} />);
         } else {
           if (i !== pageIndex && i !== 0 && i !== pageCount - 1)
             isHidden = true;
-          if (i === minPages || i === pageIndex + 1) Pages.push(<Dots />);
+          if (i === minPages || i === pageIndex + 1)
+            Pages.push(<Dots key={`${i}-dots`} />);
         }
 
         Pages.push(
@@ -89,7 +91,7 @@ export const Pagination = ({
         /* End */
         let isHidden = false;
         if (i < pageCount - minPages && i !== 0) isHidden = true;
-        if (i === minPages) Pages.push(<Dots />);
+        if (i === minPages) Pages.push(<Dots key={`${i}-dots`} />);
         Pages.push(
           <PaginationItem {...PaginationItemProps} isHidden={isHidden} />
         );
@@ -103,7 +105,7 @@ export const Pagination = ({
 
   const Pages = getPaging(width);
   return (
-    <div className={className} aira-label="Pagination">
+    <div className={className} aria-label="Pagination">
       <ul className="pagination">
         {hasPrevious && (
           <li className="pagination__item--previous">
