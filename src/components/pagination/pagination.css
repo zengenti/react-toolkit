@@ -1,0 +1,82 @@
+/* Screen Reader *Only* */
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+/* End */
+/* 
+* Pagination Item Default Styling
+ */
+.pagination-item__link {
+  cursor: pointer;
+}
+.pagination-item--active > a,
+.pagination-item--active > a:hover {
+  cursor: auto;
+}
+/* End */
+/* 
+* Hiding 'Page x of y' on Mobile
+*/
+.pagination-item--not-active {
+  display: none;
+}
+/* End */
+/* 
+* Hiding Page Index
+*/
+.pagination-item__page-index {
+  display: none;
+}
+/* End */
+/* 
+* Hiding <Dots/> e.g ...
+*/
+.dots {
+  display: none;
+}
+/* End */
+/* Hide Paging Link */
+.pagination-item__link {
+  display: none;
+}
+/* End */
+/*
+*  Screen >= 400px
+*/
+@media only screen and (min-width: 400px) {
+  /* 
+  * Hide 'Page x of y on Screens >= 400px and Show Paging Link.
+  */
+  .pagination-item__link {
+    display: block;
+  }
+  .pagination-item__text {
+    display: none;
+  }
+  /* End */
+  /* 
+  * Show the Page Index on Screens >= 400px
+  * Only Showing NONE Hidden Items.
+  */
+  .pagination-item--not-active,
+  .pagination-item__page-index {
+    display: list-item;
+  }
+  .pagination-item---hidden {
+    display: none;
+  }
+  /* End */
+  /* 
+  * Show Dots on Screens >= 400px 
+  */
+  .dots {
+    display: list-item;
+  }
+  /* End */
+}
