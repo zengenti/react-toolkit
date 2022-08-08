@@ -8,7 +8,7 @@
 
 ### Node Compatibility
 
-**Node:** ^17
+**Node:** ^16
 
 ### Setting up the project locally
 
