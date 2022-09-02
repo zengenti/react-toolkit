@@ -4,3 +4,4 @@ export * from "./components/pagination";
 
 // Utilities
 export * from "./utilities/truncateString";
+export * from "./utilities/randomId";
